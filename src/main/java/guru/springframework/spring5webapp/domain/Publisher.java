@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by Paul Baur 4/21/2021
+ */
 @Entity
 public class Publisher {
 
@@ -24,12 +27,12 @@ public class Publisher {
     public Publisher() {
     }
 
-    public Publisher(String name, String addressLine1, String city, String state, String zip) {
-        this.name = name;
-        this.addressLine1 = addressLine1;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 
     @Override
@@ -47,7 +50,7 @@ public class Publisher {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Publisher)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Publisher publisher = (Publisher) o;
 
@@ -57,14 +60,6 @@ public class Publisher {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
-    }
-
-    public Set<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(Set<Book> books) {
-        this.books = books;
     }
 
     public Long getId() {

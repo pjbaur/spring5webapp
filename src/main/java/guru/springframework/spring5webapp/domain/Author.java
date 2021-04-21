@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by Paul Baur on 4/21/2021
+ */
 @Entity
 public class Author {
 
@@ -63,14 +66,13 @@ public class Author {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", books=" + books +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Author)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Author author = (Author) o;
 
